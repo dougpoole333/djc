@@ -1,0 +1,8 @@
+<!-- snippet: script-loader.liquid -->
+{% assign script = template | append: "-compiled.js" %}
+{% comment %} {{ script | asset_url | script_tag }} {% endcomment %}
+
+<script>
+let temp = '{{script}}'
+console.log("Loaded ", temp)
+</script>
