@@ -2,9 +2,10 @@
   "name": "bismuth-themekit",
   "version": "1.0.0",
   "description": "Shopify theme boilerplate",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "test": "theme watch"
+    "test": "theme watch",
+    "dev": "webpack --watch"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,13 @@
   "bugs": {
     "url": "https://github.com/dougpoole333/bismuth-themekit/issues"
   },
-  "homepage": "https://github.com/dougpoole333/bismuth-themekit#readme"
+  "homepage": "https://github.com/dougpoole333/bismuth-themekit#readme",
+  "devDependencies": {
+    "@babel/core": "^7.8.6",
+    "@babel/preset-env": "^7.8.6",
+    "babel-loader": "^8.0.6",
+    "concurrently": "^5.1.0",
+    "webpack": "^4.42.0",
+    "webpack-cli": "^3.3.11"
+  }
 }
