@@ -1,0 +1,19 @@
+{
+  "name": "bismuth-themekit",
+  "version": "1.0.0",
+  "description": "Shopify theme boilerplate",
+  "main": "index.js",
+  "scripts": {
+    "test": "theme watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dougpoole333/bismuth-themekit.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dougpoole333/bismuth-themekit/issues"
+  },
+  "homepage": "https://github.com/dougpoole333/bismuth-themekit#readme"
+}
