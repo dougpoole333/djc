@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "test": "theme watch",
-    "dev": "webpack --watch"
+    "dev": "concurrently \"webpack --watch\" \"theme watch\"",
+    "sync": "browser-sync start --proxy \"https://bismuth-themekit.myshopify.com?preview_theme_id=91305705517\" --files \"*/*.*\" --reload-delay 1000"
   },
   "repository": {
     "type": "git",
@@ -22,7 +23,16 @@
     "@babel/preset-env": "^7.8.6",
     "babel-loader": "^8.0.6",
     "concurrently": "^5.1.0",
+    "gulp": "^4.0.2",
+    "gulp-rename": "^2.0.0",
+    "gulp-uglify": "^3.0.2",
     "webpack": "^4.42.0",
-    "webpack-cli": "^3.3.11"
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3",
+    "webpack-stream": "^5.2.1"
+  },
+  "dependencies": {
+    "browser-sync": "^2.26.7",
+    "fs": "0.0.1-security"
   }
 }

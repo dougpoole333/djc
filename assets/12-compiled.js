@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[12],[function(n,o){o.testComponent1=()=>{console.log("running test component 1")}}]]);
