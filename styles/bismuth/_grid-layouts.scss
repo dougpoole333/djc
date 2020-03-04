@@ -1,0 +1,133 @@
+/*================  Grids 2 Collage ================*/
+.grid-2-collage {
+  @include grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-2-collage :nth-child(1),
+.grid-2-collage :nth-child(11),
+.grid-2-collage :nth-child(13),
+.grid-2-collage :nth-child(17),
+.grid-2-collage :nth-child(19),
+.grid-2-collage :nth-child(23),
+.grid-2-collage :nth-child(29),
+.grid-2-collage :nth-child(31),
+.grid-2-collage :nth-child(41),
+.grid-2-collage :nth-child(5),
+.grid-2-collage :nth-child(7) {
+  grid-row: span 2;
+}
+
+.grid-2-collage-invert {
+  @include grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-2-collage-invert :nth-child(10),
+.grid-2-collage-invert :nth-child(14),
+.grid-2-collage-invert :nth-child(16),
+.grid-2-collage-invert :nth-child(2),
+.grid-2-collage-invert :nth-child(20),
+.grid-2-collage-invert :nth-child(22),
+.grid-2-collage-invert :nth-child(26),
+.grid-2-collage-invert :nth-child(28),
+.grid-2-collage-invert :nth-child(32),
+.grid-2-collage-invert :nth-child(34),
+.grid-2-collage-invert :nth-child(38),
+.grid-2-collage-invert :nth-child(4),
+.grid-2-collage-invert :nth-child(40),
+.grid-2-collage-invert :nth-child(44),
+.grid-2-collage-invert :nth-child(46),
+.grid-2-collage-invert :nth-child(8) {
+  grid-row: span 2;
+}
+/*================  Grids 3 Collage ================*/
+.grid-3-collage {
+  @include grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-3-collage :nth-child(1),
+.grid-3-collage :nth-child(11),
+.grid-3-collage :nth-child(13),
+.grid-3-collage :nth-child(17),
+.grid-3-collage :nth-child(19),
+.grid-3-collage :nth-child(23),
+.grid-3-collage :nth-child(29),
+.grid-3-collage :nth-child(31),
+.grid-3-collage :nth-child(41),
+.grid-3-collage :nth-child(5),
+.grid-3-collage :nth-child(7) {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+@include media-query($small) {
+  .grid-3-collage {
+    @include grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+/*================  Grids 4 Collage ================*/
+.grid-4-collage {
+  @include grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  & :nth-child(10n + 6) {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  & :nth-child(10n + 3) {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+}
+
+.grid-4-collage-invert {
+  grid-auto-rows: unset !important;
+  @include grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  & :nth-child(10n + 8) {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  & :nth-child(10n + 1) {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+}
+
+@include media-query($small) {
+  .grid-4-collage,
+  .grid-4-collage-invert {
+    @include grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+
+
+// MORE STUFF HERE
+
+.grid-tag-filter {
+  display: grid;
+  grid-auto-rows: max-content;
+  grid-template-rows: repeat(4, 1fr);
+  max-width: 67%;
+  justify-items: start;
+  text-transform: capitalize;
+  grid-auto-flow: column;
+}
+
+
+/* NAV-DESKTOP.LIQUID */
+.navbar {
+  display: grid;
+  grid-template-columns: repeat(12,1fr);
+  @include media-query($small){
+    grid-template-column: repeat(6,1fr);
+  }
+}

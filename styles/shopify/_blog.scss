@@ -1,0 +1,114 @@
+/*
+
+SHOPIFY - BLOG
+--------------
+
+1.0 - BLOG
+  1.1 - FILTER
+2.0 - ITEM-CONTENT
+  2.1 - IMAGE
+  2.2 - TEXT
+3.0 - ARTICLE
+  3.1 - CONTAINER
+  3.2 - 
+  3.3 - 
+  3.X - LEGACY
+
+*/
+
+/* 1.0 - BLOG */
+
+  .blog-wrapper.grid-gap-xs {
+    grid-gap: 50px 10px;
+    @include media-query($small){
+      grid-gap: 25px;
+    }
+  }
+
+  /* 1.1 - FILTER */
+  .blog-filter-container {
+    display: flex;
+    justify-content: space-evenly;
+    max-width: 900px;
+  }
+  /* END 1.1 - FILTER */
+
+/* END 1.0 - BLOG */
+
+/* 2.0 GRID ITEM */
+.gridItem-blog {
+
+  /* 2.1 - IMAGE */
+  .article-cover {
+    height: 55vw;
+    max-height: 300px;
+    @include media-query($medium-up){
+      height: 20vw;
+      max-height: 325px;
+    }
+  }
+
+  /* 2.2 - TEXT */
+  .article-preview {
+    width: 100%;
+    padding: 10px 5px;
+    @include media-query($medium-up){
+      padding: 15px;
+    }
+  }
+
+}
+/* END 2.0 GRIDITEM */
+
+/* 3.0 - ARTICLE */
+.article-body {
+
+
+
+  img {
+    padding: 10px 0;
+    width: 100%;
+    max-width: 100%;
+    margin: auto;
+  }
+}
+
+.article-content {
+
+  h1, h2, h3, h4, p {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    padding: 10px 0;
+  }
+
+  .align-center {
+    height: 100%;
+    align-items: center;
+    align-content: center;
+  }
+
+}
+
+
+  /* 3.X - LEGACY */
+  .article-content {
+    .grid {
+      display: flex;
+    }
+  }
+  /* END 3.X - LEGACY */
+
+/* END 3.0 - ARTICLE */
+
+
+.article-relatedcontent {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  .collection-product-item {
+    width: 50%;
+    max-width: 365px;
+  }
+}
+

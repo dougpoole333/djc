@@ -1,0 +1,39 @@
+@charset 'UTF-8';
+
+/* VENDOR */
+@import "./styles/vendor/_magnific-popup.scss";
+@import "./styles/vendor/_swiper.scss";
+
+/* OVERWRITE */
+@import "./styles/overwrite/_variables.scss";
+@import "./styles/overwrite/_mixins.scss";
+@import "./styles/overwrite/_overwrite.scss";
+
+/* COMPONENTS */
+@import "./styles/components/_sliders.scss";
+@import "./styles/components/_header.scss";
+@import "./styles/components/_footer.scss";
+@import "./styles/components/_marquee.scss";
+@import "./styles/components/_sitemap.scss";
+@import "./styles/components/_sec-navigation.scss";
+@import "./styles/components/_snippets.scss";
+@import "./styles/components/_search.scss";
+
+/* SHOPIFY */
+@import "./styles/shopify/_accounts.scss";
+@import "./styles/shopify/_blog.scss";
+@import "./styles/shopify/_cart.scss";
+@import "./styles/shopify/_collection.scss";
+@import "./styles/shopify/_customer-pages.scss";
+@import "./styles/shopify/_index.scss";
+@import "./styles/shopify/_page.scss";
+@import "./styles/shopify/_page-archive.scss";
+@import "./styles/shopify/_page-charity.scss";
+@import "./styles/shopify/_page-fabrics.scss";
+@import "./styles/shopify/_product.scss";
+@import "./styles/shopify/_password.scss";
+
+html {
+  visibility: visible;
+  opacity: 1;
+}

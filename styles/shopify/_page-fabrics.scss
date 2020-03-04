@@ -1,0 +1,95 @@
+.fabric-fit{
+  display: block;
+  width: 100%;
+}
+img{
+  vertical-align: bottom;
+}
+.fabric-grid{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-gap: 5px;
+  padding-bottom: 50px;
+}
+
+.fabric-info--image{
+  // grid-row-start: 2;
+}
+.fabric-fit--caption{
+  position: absolute;
+  padding-top: 10px;
+}
+.fabric-info--desc{
+  text-align: center;
+  width: 100%!important;
+  P{
+    margin: auto;
+    max-width: 500px;
+  }
+}
+
+@media only screen and (min-width: 766px) {
+
+  .fabric-grid{
+    grid-template-columns: repeat(5,1fr);
+    grid-gap: 10px;
+    padding-bottom: 100px;
+  }
+  .fabric-fit--caption{
+    padding-top: 10px;
+  }
+
+  .fabric-info--image{
+    // grid-row-start: 1;
+  }
+  .fabric-info--swatch{
+    max-width: 100%;
+    margin: auto;
+  }
+}
+img.fabric-info--swatch {
+    filter: brightness(0.5);
+}
+
+.fabric-img-height{
+  display: block;
+    height: 80vh;
+    min-height: 800px;
+}
+.fabric-info--desc{
+ position: relative;
+}
+.fabric-description {
+  color:white;
+  max-width: 570px;
+  padding:0px 20px;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 27%;
+    h2{
+      font-size:58px;
+      @include media-query($small){
+        font-size:10vw;
+      }
+    }
+}
+
+
+.fabric--cross {
+  width: 35px;
+  padding: 20px 0;
+  margin: auto;
+  @include media-query($small){
+    width: 25px;
+    padding: 10px 0;
+  }
+}
+
+
+.fabric-info {
+  .image-cover > img {
+    min-height: inherit;
+  }
+}

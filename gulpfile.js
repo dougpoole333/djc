@@ -1,19 +1,19 @@
 const {watch, src, series, parallel, dest} = require('gulp');
+const sass = require('gulp-sass');
+const replace = require('gulp-replace');
+const touch = require('gulp-touch-fd');
+const rename = require('gulp-rename')
+const autoprefixer = require('gulp-autoprefixer');
 const fs = require('fs')
 const yaml = require('js-yaml');
-const webpack = require('webpack');
 const webpackStream = require('webpack-stream');
+var liquid = require("gulp-liquidjs");
 const filePath = require('path');
 var browserSync = require('browser-sync').create();
 
 function getProps(cb) {
   var doc = yaml.safeLoad(fs.readFileSync('./config.yml', 'utf8'));
   return doc
-}
-
-function css(cb) {
-  console.log('css')
-  cb();
 }
 
 function returnJSWebpackConfig(path){
@@ -29,7 +29,7 @@ function returnJSWebpackConfig(path){
   }
 }
 
-function bundleTemplateFile(path){
+function bundleTemplateJS(path){
   let config = returnJSWebpackConfig(path)
   return src(path)
     .pipe(webpackStream(config))
@@ -56,12 +56,12 @@ function browserSyncInit(){
   })
 }
 
-async function javascript(cb) {
+async function bundleAll(cb) {
     browserSyncInit()
     //watches template files
     watch(['./scripts/templates/*.js'], { ignoreInitial: false }).on('all', function(event, path){
       console.log(path)
-      bundleTemplateFile(path)
+      bundleTemplateJS(path)
     })
     //watches modules
     watch(['./scripts/components/*.js']).on('all', function(event, path){
@@ -72,14 +72,31 @@ async function javascript(cb) {
             fs.readFile("./scripts/templates/" + file, function (err, data) {
               if (err) throw err;
               if(data.indexOf(moduleName) >= 0){
-               bundleTemplateFile("scripts/templates/" + file)
+               bundleTemplateJS("scripts/templates/" + file)
               }
             });
         });
     });
     })
 
+    watch(['./styles/**/*.scss'], { ignoreInitial: false }).on('all', function(){
+      return src('./styles/theme.scss')
+      // .pipe(liquid())
+      .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
+      // add vendor prefixes
+      .pipe(autoprefixer())
+      // change the file name to be styles.scss.liquid file
+      .pipe(rename('styles.scss.liquid'))
+      // remove the extra set of quotations used for escaping the liquid string (we'll explain this in a sec)
+      .pipe(replace('"{{', '{{'))
+      .pipe(replace('}}"', '}}'))
+      // save the file to the theme assets directory
+      .pipe(dest('assets'))
+      .pipe(touch());
+    })
+    cb()
+
   }
 
 
-  exports.watch = series(parallel(css, javascript));
+  exports.watch = bundleAll;

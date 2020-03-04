@@ -1,0 +1,135 @@
+
+/*================ Customer Pages  ================*/
+
+.customer-form{
+  display: flex;
+  flex-direction: column;
+  // width: 50%;
+  margin: auto;
+  text-align: center;
+  align-items: center;
+  @include transition(all 400ms);
+  @include media-query($small){
+    width: 80%;
+  };
+
+  h1, a{
+    font-family: var(--font-second);
+    color: white;
+  }
+  input[type=submit]{
+    // width: 80%;
+
+    @include media-query($small){
+      // width: 80%;
+    };
+  }
+  *{
+    // margin: 1rem 0;
+    // padding: 15px;
+    @include media-query($small){
+      margin: 10px 0;
+      // padding: 15px;
+    };
+  }
+
+  a{
+    @include media-query($medium-down){
+      padding: 5px;
+    };
+  }
+  ::-webkit-input-placeholder{
+    text-align: center;
+  }
+}
+
+.form--recovery.border-shadow {
+    width: 100%;
+}
+
+// .customer-account-page-container{
+//   justify-content: flex-start;
+//   .customer-form-link{
+//     padding: $gutter;
+//     text-decoration: underline;
+//   }
+//   a{
+//     color: white;
+//   }
+
+//   .responsive-table{
+//     margin-bottom: $gutter;
+//     border-bottom: 1px solid white;
+//     @include media-query($medium-up){
+//       width: 80%;
+//     };
+//   }
+// }
+
+.customer-account-page-header{
+  @include media-query($medium-up){
+    min-width: 400px;
+  };
+  @include media-query($small){
+    width: 100%;
+  };
+  text-align: center;
+}
+
+.edit-address-form{
+  width: 100%;
+
+  input, .address-edit-toggle{
+    width: 100% !important;
+    @include media-query($small){
+      width: 90% !important;
+    };
+  }
+}
+
+.address-new-toggle{
+  border-radius: 7px;
+  width: 80%;
+  @include media-query($small){
+    width: 100%;
+  };
+}
+
+.customer-address{
+  @include media-query($medium-up){
+    min-width: 400px;
+    padding: $gutter;
+    max-width: 50%;
+  };
+  @include media-query($small){
+    width: 100%;
+    padding: 20px 0;
+  };
+  display: flex;
+  flex-direction: column;
+  button{
+    margin: 5px 0;
+    border-radius: 7px;
+  }
+}
+
+.form-login {
+  width: 100%;
+  label {
+    padding-bottom: 5px;
+  }
+  input {
+    width: 100%;
+  }
+}
+
+form {
+  input {
+    width: 100%;
+    font-size: $font-size-p;
+  }
+}
+
+.customer-details {
+  padding: $gutter-medium;
+}
