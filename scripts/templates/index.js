@@ -1,2 +1,1 @@
-console.log('index.js')
-console.log("LCASHIT")
+console.log("NEW TEST")

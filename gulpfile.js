@@ -4,9 +4,9 @@ const uglify = require('gulp-uglify');
 const rename = require('gulp-rename');
 const webpack = require('webpack');
 const webpackStream = require('webpack-stream');
-const webpackConfig = require('./webpack.config.js');
-const livereload = require('gulp-livereload');
-var bs = require('browser-sync').create(); 
+const filePath = require('path');
+
+var WebpackDevServer = require("webpack-dev-server");
 
 function clean(cb) {
   cb();
@@ -17,17 +17,50 @@ function css(cb) {
   cb();
 }
 
+function returnJSWebpackConfig(path){
+  return {
+    entry: {
+      [filePath.parse(path).name]: "./" + path
+    },
+    output: {
+      filename: '[name]-compiled.js',
+      path: __dirname + '/assets'
+    }, 
+    mode: "none"
+  }
+}
+
+function bundleTemplateFile(path){
+  let config = returnJSWebpackConfig(path)
+  return src(path)
+    .pipe(webpackStream(config))
+    .pipe(dest('assets'))
+}
+
 
 async function javascript(cb) {
-    bs.init({
-        target: "bismuth-themekit.myshopify.com/" // makes a proxy for localhost:8080
+    //watches template files
+    watch(['./scripts/templates/*.js']).on('all', function(event, path){
+      console.log(path)
+      bundleTemplateFile(path)
+    })
+    //watches modules
+    watch(['./scripts/components/*.js']).on('all', function(event, path){
+      let moduleName = filePath.parse(path).name
+      fs.readdir("./scripts/templates/", function (err, files) {
+        files.forEach(function (file) {
+            // Do whatever you want to do with the file
+            fs.readFile("./scripts/templates/" + file, function (err, data) {
+              if (err) throw err;
+              if(data.indexOf(moduleName) >= 0){
+               bundleTemplateFile("scripts/templates/" + file)
+              }
+            });
+        });
     });
-    watch(['./scripts/templates/*.js'], async function() {
-    var files = await fs.readdirSync('./scripts/templates/').map(el => './scripts/templates/' + el);
-      return src(files)
-        .pipe(webpackStream(webpackConfig, webpack))
-        .pipe(dest('./assets'))
-    }).on('change', bs.reload)
+    })
+
   }
+
 
   exports.build = series(clean, parallel(css, javascript));

@@ -1,5 +1,3 @@
 exports.testComponent1 = () => {
-    console.log('running test component 1')
-    console.log("SHYT")
-    console.log("JEUY")
+    console.log('running test compoonent 1')
 }
