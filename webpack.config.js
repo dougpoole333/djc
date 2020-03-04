@@ -10,11 +10,11 @@ module.exports = {
       ['page.contact']: './scripts/templates/page.contact.js',
       product: './scripts/templates/product.js',
       page: './scripts/templates/page.js',
-      password: './scripts/templates/password.js',
       search: './scripts/templates/search.js'
     },
     output: {
       filename: '[name]-compiled.js',
       path: __dirname + '/assets'
-    }
+    },
+    mode: "production"
   };

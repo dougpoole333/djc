@@ -1,3 +1,2 @@
-const { testComponent1 } = require('../components/test-component-1');
-testComponent1();
+import '../components/test-component-1'
 console.log("product.js")

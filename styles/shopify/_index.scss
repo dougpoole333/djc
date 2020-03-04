@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css?family=Forum|Taviraj:300,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Archivo:400,700&display=swap');
+
+body {
+  font-family: var(--font-first);
+  color: $color-1;
+}
+
+/* TRIM INTO INDIVIDUAL FILES ETC */
+/* CSS -> section: featured-content.liquid */
+.section-featuredcontent {
+  align-items: center;
+}
+
+.featuredcontent-asset {
+  margin-right: -15%;
+  box-shadow: -10px 15px 45px rgba(0, 0, 0, 0.65);
+  @include media-query($small) {
+    margin-right: 0;
+  }
+}
+
+.featuredcontent-details {
+  height: max-content;
+  align-self: center;
+  background: white;
+  box-shadow: -10px 15px 45px rgba(0, 0, 0, 0.65);
+  padding: $gutter;
+  @include media-query($small) {
+    padding: $gutter-small;
+  }
+}
+
+.featuredcontent-btn {
+  display: block;
+  width: max-content;
+  font-family: $font-1;
+  font-size: $font-size-base;
+  background: $color-1;
+  color: $color-bg;
+  padding: 20px 40px;
+}
+
+/* ALL */
+.page-title {
+  // font-weight: bold;
+  padding: $gutter-large 0;
+  text-align: center;
+  @include media-query($small) {
+    padding: $gutter 0;
+  }
+}
+/* V7 BORDER  */
+
+.product-info.slider-child {
+  display: grid;
+  grid-auto-rows: minmax(auto, 60px);
+}
+
+
+.search {
+  max-width: 550px;
+}
+
+
+.product-grid-editorial-item {
+  width: 100%;
+  height: 100%;
+  background: $color-bg;
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.hr--small {
+  width: 50px;
+  margin: 25px auto;
+  @include media-query($small){
+    margin: 10px auto;
+  }
+}
+
+.hr--heading {
+  width: 50px;
+  margin: 25px auto 50px;
+  @include media-query($small){
+    margin: 10px auto 25px;
+  }
+}
+
+// .grid-break-1 {
+//   @include media-query($small){
+//     grid-template-columns: minmax(1px, 1fr) !important;
+//   }
+// }
+
+/* CORE OVERWRITE */
+button {
+  border: 0;
+  white-space: nowrap;
+}
+
+.featured-blog {
+  @include media-query($small){
+    .article-cover {
+      height: 30vh;
+    }
+  }
+}
+
+.content-blocks {
+  align-items: start;
+}
+
+.template-index {
+  .grid-gap-s{
+    @include media-query($small){
+      grid-gap: 13px;
+    }
+  }
+  .spacer-l{
+    @include media-query($small){
+      height: 15px;
+    }
+  }
+}
+
+.swiper-slide {
+  width: 100vw;
+}

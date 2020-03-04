@@ -1,3 +1,1 @@
-exports.testComponent1 = () => {
-    console.log('running test component 1')
-}
+console.log('RUN TEST COMPONENT 1')

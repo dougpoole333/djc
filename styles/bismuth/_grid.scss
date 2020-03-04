@@ -1,0 +1,203 @@
+//    _____ _____  _____ _____   _____
+//   / ____|  __ \|_   _|  __ \ / ____|
+//  | |  __| |__) | | | | |  | | (___
+//  | | |_ |  _  /  | | | |  | |\___ \
+//  | |__| | | \ \ _| |_| |__| |____) |
+//   \_____|_|  \_|_____|_____/|_____/
+
+/*================ Basic Grid Mixin ================*/
+$grid-gap: 0;
+@mixin grid {
+  display: grid;
+  align-items: stretch;
+}
+
+.grid-left {
+  align-content: left !important;
+  justify-content: left !important;
+  justify-items: left !important;
+}
+
+.grid-right {
+  align-content: right !important;
+  justify-content: right !important;
+  justify-items: right !important;
+}
+
+/* FLEX VERTICAL ALIGNMENT HELPERS */
+
+.align-top {
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+.align-center {
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+.align-bottom {
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-end;
+}
+
+/*================ Standard Grids ================*/
+.grid-1 {
+@include grid;
+  grid-template-columns: repeat(1, 1fr);
+}
+.grid-2 {
+@include grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.grid-3 {
+@include grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.grid-4 {
+@include grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.grid-5 {
+  @include grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+.grid-6 {
+  @include grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+.grid-7 {
+  @include grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+.grid-8 {
+  @include grid;
+  grid-template-columns: repeat(8, 1fr);
+}
+.grid-9 {
+  @include grid;
+  grid-template-columns: repeat(9, 1fr);
+}
+.grid-10 {
+  @include grid;
+  grid-template-columns: repeat(10, 1fr);
+}
+.grid-11 {
+  @include grid;
+  grid-template-columns: repeat(11, 1fr);
+}
+.grid-12 {
+  @include grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+/*================  Grid Span  ================*/
+
+.grid-span-1{grid-column: span 1}
+.grid-span-2{grid-column: span 2}
+.grid-span-3{grid-column: span 3}
+.grid-span-4{grid-column: span 4}
+.grid-span-5{grid-column: span 5}
+.grid-span-6{grid-column: span 6}
+.grid-span-7{grid-column: span 7}
+.grid-span-8{grid-column: span 8}
+.grid-span-9{grid-column: span 9}
+.grid-span-10{grid-column: span 10}
+.grid-span-11{grid-column: span 11}
+.grid-span-12{grid-column: span 12}
+
+/*================  Grid 2-1  ================*/
+.grid-2-1 {
+  @include grid;
+  grid-template-columns: 70% 30%;
+}
+
+.grid-2-1-invert {
+  @include grid;
+  grid-template-columns: 34% 66% !important;
+}
+/*================  Grid Mobile Break ================*/
+@include media-query($small) {
+  .grid-2,
+  .grid-2-1,
+  .grid-2-1-invert,
+  .grid-2-break,
+  .grid-3,
+  .grid-4,
+  .grid-5,
+  .grid-6,
+  .grid-7,
+  .grid-8,
+  .grid-9,
+  .grid-10 {
+    @include grid;
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+}
+@include media-query($small) {
+  .grid-break-1 {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+
+  .grid-break-2 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .grid-break-2 .invert {
+    order: 2;
+  }
+
+  .grid-break-3 {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+
+  .grid-break-4 {
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+}
+
+/* GAP */
+$grid-gap: 5px;
+$grid-gap-xs: $grid-gap;
+$grid-gap-s: $grid-gap*2;
+$grid-gap-m: $grid-gap*4;
+$grid-gap-l: $grid-gap*6;
+$grid-gap-xl: $grid-gap*10;
+
+.grid-gap-xs {
+  grid-gap: $grid-gap;
+}
+
+.grid-gap-s {
+  grid-gap: $grid-gap-s;
+  @include media-query($small) {
+    grid-gap: $grid-gap-xs;
+  }
+}
+
+.grid-gap-m {
+  grid-gap: $grid-gap-m;
+  @include media-query($small) {
+    grid-gap: $grid-gap-s;
+  }
+}
+
+.grid-gap-l {
+  grid-gap: $grid-gap-l;
+  @include media-query($small) {
+    grid-gap: $grid-gap-m;
+  }
+}
+
+.grid-gap-xl {
+  grid-gap: $grid-gap-xl;
+  @include media-query($small) {
+    grid-gap: $grid-gap-l;
+  }
+}

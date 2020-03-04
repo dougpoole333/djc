@@ -1,0 +1,57 @@
+.page-sitemap {
+  .tree_top {
+    padding: 0 37px;
+  }
+
+  ul.tree {
+    padding-left: 24px;
+  }
+
+  ul.tree li {
+    margin: 0 0 0 21px;
+    padding: 5px 0 0 33px;
+    border-left: 1px solid #000;
+    display: block;
+    background: url("https://cdn.shopify.com/s/files/1/0087/5420/0661/t/39/assets/sitemap-horizontal.png")
+      no-repeat left 15px transparent;
+  }
+  /* ul.tree ul {
+    border-left: 1px solid #000;
+    padding-left: 0px;
+  } */
+  ul.tree li.last {
+    border: medium none;
+    background: url("https://cdn.shopify.com/s/files/1/0087/5420/0661/t/39/assets/sitemap-last.png")
+      no-repeat 0 -4px transparent;
+  }
+
+  #listpage_content div.tree_top a:before {
+    content: "\f015";
+    display: inline-block;
+    font-family: "FontAwesome";
+    font-size: 20px;
+    color: #000;
+  }
+
+  .site-map-product-img-wrapper {
+    top: 190px;
+    width: 58vh;
+    position: fixed;
+    right: 102px;
+    z-index: 1;
+  }
+
+  .site-map-product-img {
+    position: absolute;
+  }
+
+  .grid-4 {
+    display: grid !important;
+    align-items: stretch;
+    grid-template-columns: 1fr 4fr 3fr 1fr;
+  }
+  .grid-5 {
+    display: grid !important;
+    grid-gap: 5px 3%;
+  }
+}

@@ -1,0 +1,42 @@
+/*
+
+COMPONENTS - SNIPPETS
+---------------------
+
+0.0 - PAGINATION
+
+
+*/
+
+
+/* 0.0 PAGINATION */
+.pagination {
+
+  display: flex;
+  padding: 5px 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  width: 300px;
+  margin: auto;
+  background-color: #F6F6F6;
+
+  .page {
+    padding: 10px;
+    &.current {
+      color: $color-accent-2;
+    }
+  }
+  // height: 28px;
+
+  // font-size: 20px;
+
+  // .page {
+  //   padding: 8px;
+  //   &.current {
+  //     color: $color-accent-2;
+  //   }
+  // }
+
+}
+/* END 0.0 - PAGINATION */
