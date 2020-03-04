@@ -15,5 +15,6 @@ module.exports = {
     output: {
       filename: '[name]-compiled.js',
       path: __dirname + '/assets'
-    }
+    },
+    mode: "production"
   };

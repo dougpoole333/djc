@@ -1,4 +1,4 @@
-const {watch, src, series, parallel, dest} = require('gulp');
+const {watch, src, dest} = require('gulp');
 const sass = require('gulp-sass');
 const replace = require('gulp-replace');
 const touch = require('gulp-touch-fd');
