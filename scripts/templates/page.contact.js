@@ -1,1 +1,1 @@
-console.log('page-ntaFAFAct.js')
+console.log('page-contact.js')
