@@ -1,1 +1,2 @@
-console.log("NEW TEST")
+console.log('index.js')
+console.log("test3")

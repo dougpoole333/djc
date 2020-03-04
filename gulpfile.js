@@ -5,6 +5,8 @@ const rename = require('gulp-rename');
 const webpack = require('webpack');
 const webpackStream = require('webpack-stream');
 const filePath = require('path');
+const livereload = require('gulp-livereload');
+var browserSync = require('browser-sync').create();
 
 var WebpackDevServer = require("webpack-dev-server");
 
@@ -26,7 +28,7 @@ function returnJSWebpackConfig(path){
       filename: '[name]-compiled.js',
       path: __dirname + '/assets'
     }, 
-    mode: "none"
+    mode: "production"
   }
 }
 
@@ -37,12 +39,25 @@ function bundleTemplateFile(path){
     .pipe(dest('assets'))
 }
 
-
 async function javascript(cb) {
+    browserSync.init({
+        proxy: {
+          target: "https://bismuth-themekit.myshopify.com?preview_theme_id=91305705517"
+        },
+        snippetOptions: {
+          rule: {
+              match: /<\/body>/i,
+              fn: function (snippet, match) {
+                  return snippet + match;
+              }
+          }
+      },
+    });
     //watches template files
-    watch(['./scripts/templates/*.js']).on('all', function(event, path){
+    watch(['./scripts/templates/*.js'], { ignoreInitial: false }).on('all', function(event, path){
       console.log(path)
       bundleTemplateFile(path)
+      setTimeout(() => {browserSync.reload()}, 1000)
     })
     //watches modules
     watch(['./scripts/components/*.js']).on('all', function(event, path){
