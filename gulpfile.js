@@ -1,17 +1,14 @@
 const {watch, src, series, parallel, dest} = require('gulp');
 const fs = require('fs')
-const uglify = require('gulp-uglify');
-const rename = require('gulp-rename');
+const yaml = require('js-yaml');
 const webpack = require('webpack');
 const webpackStream = require('webpack-stream');
 const filePath = require('path');
-const livereload = require('gulp-livereload');
 var browserSync = require('browser-sync').create();
 
-var WebpackDevServer = require("webpack-dev-server");
-
-function clean(cb) {
-  cb();
+function getProps(cb) {
+  var doc = yaml.safeLoad(fs.readFileSync('./config.yml', 'utf8'));
+  return doc
 }
 
 function css(cb) {
@@ -39,25 +36,32 @@ function bundleTemplateFile(path){
     .pipe(dest('assets'))
 }
 
-async function javascript(cb) {
-    browserSync.init({
-        proxy: {
-          target: "https://bismuth-themekit.myshopify.com?preview_theme_id=91305705517"
-        },
-        snippetOptions: {
-          rule: {
-              match: /<\/body>/i,
-              fn: function (snippet, match) {
-                  return snippet + match;
-              }
+function browserSyncInit(){
+ let props = getProps()
+ browserSync.init({
+    proxy: {
+      target: `https://${props.development.store}?preview_theme_id=${props.development.theme_id}`
+    },
+    snippetOptions: {
+      rule: {
+          match: /<\/body>/i,
+          fn: function (snippet, match) {
+              return snippet + match;
           }
-      },
-    });
+      }
+    },
+  });
+  watch(['./theme_reload']).on('all', function(){
+    setTimeout(browserSync.reload, 1000)
+  })
+}
+
+async function javascript(cb) {
+    browserSyncInit()
     //watches template files
     watch(['./scripts/templates/*.js'], { ignoreInitial: false }).on('all', function(event, path){
       console.log(path)
       bundleTemplateFile(path)
-      setTimeout(() => {browserSync.reload()}, 1000)
     })
     //watches modules
     watch(['./scripts/components/*.js']).on('all', function(event, path){
@@ -78,4 +82,4 @@ async function javascript(cb) {
   }
 
 
-  exports.build = series(clean, parallel(css, javascript));
+  exports.watch = series(parallel(css, javascript));

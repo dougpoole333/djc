@@ -1,1 +1,1 @@
-console.log('running test-coponent 2')
+console.log('running test-component-2')
