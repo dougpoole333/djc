@@ -6,9 +6,9 @@
   "scripts": {
     "deploy": "webpack --config webpack.config.js && theme deploy",
     "start": "npm run deploy && npm run watch",
-    "watch": "run-s tab:gulp tab:theme:watch",
-    "tab:gulp": "ttab -t 'GULP' gulp watch",
-    "tab:theme:watch": "ttab -t 'Themekit' theme watch --notify=theme_reload"
+    "watch": "concurrently \"npm run tab:gulp\" \"npm run tab:theme:watch\"",
+    "tab:gulp": "gulp watch",
+    "tab:theme:watch": "theme watch --notify=theme_reload"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,7 @@
     "@babel/core": "^7.8.6",
     "@babel/preset-env": "^7.8.6",
     "babel-loader": "^8.0.6",
+    "concurrently": "^5.1.0",
     "event-stream": "^4.0.1",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
