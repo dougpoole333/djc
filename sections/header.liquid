@@ -16,7 +16,7 @@
 
 {% include 'search-drawer' %}
 
-<div id="custom-header" data-section-id="{{ section.id }}" data-section-type="header-section" data-header-section>
+<div id="custom-header" class="header__{{template.name}}" data-section-id="{{ section.id }}" data-section-type="header-section" data-header-section>
   {% if section.settings.message %}
     {% if section.settings.home_page_only == false or request.page_type == 'index' %}
       <style>
@@ -58,8 +58,8 @@
     {% endif %}
   {% endif %}
 
-  <header class="site-header{% if section.settings.align_logo == 'left' %} logo--left{% else %} logo--center{% endif %} custom-header" role="banner">
-    <div class="grid grid--no-gutters grid--table site-header__mobile-nav">
+  <header class="site-header{% if section.settings.align_logo == 'left' %} logo--left{% else %} logo--center{% endif %} custom-header header__{{template.name}}" role="banner">
+    <div class="grid grid--no-gutters grid--table site-header__mobile-nav header__{{template.name}}">
       {% if section.settings.align_logo == 'center' %}
         {%- assign logo_classes = 'medium-up--one-third medium-up--push-one-third logo-align--center' -%}
       {% else %}

@@ -10,8 +10,22 @@ html {
   opacity: 1;
 }
 
+.btn{
+  border: 1px solid white;
+}
+
+.main-content.template--index{
+  margin-top: 0px;
+}
+.main-content{
+  margin-top: 100px;
+}
+
 @media only screen and (max-width: 600px) {
-  .main-content-{
+  .main-content{
+    margin-top: 100px;
+  }
+  .main-content.template--index{
     margin-top: 100px;
   }
 }

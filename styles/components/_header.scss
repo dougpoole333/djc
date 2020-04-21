@@ -23,22 +23,32 @@
 #custom-header{
   width: 100%;
   position: fixed;
-  z-index: 100;
+  z-index: 10100;
+  transition: background-color .3s;
+  border-bottom: 1px solid white;
+}
+#custom-header.header__index{
   border-bottom-color: transparent;
-  transition: background-color .3s
 }
 
 
 
 @media only screen and (max-width: 600px) {
+  .custom-header.header__index{
+    background-color: black;
+  }
+  
+  .site-header__mobile-nav.header__index{
+    background-color: black;
+  }
 }
 
 @media only screen and (min-width: 601px) {
-  .custom-header{
+  .custom-header.header__index{
     background-color: transparent;
   }
   
-  .site-header__mobile-nav{
+  .site-header__mobile-nav.header__index{
     background-color: transparent;
   }
 }

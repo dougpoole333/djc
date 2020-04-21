@@ -1,8 +1,8 @@
 console.log("header script")
 document.addEventListener('DOMContentLoaded',() => {
     var $nav = $('#custom-header');
-    var $win = $(window);
-    var winH = $win.height();   // Get the window height.
+    var $win = $(window)
+    var winH = $win.height() - 100;   // Get the window height.
 
     $win.on("scroll", function () {
         if ($(this).scrollTop() > winH ) {
