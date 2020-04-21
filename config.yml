@@ -1,4 +1,6 @@
 development:
-  password: 3bdee46edc51b076b6e6b02994f416cf
-  theme_id: "91305705517"
-  store: bismuth-themekit.myshopify.com
+  password: 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
+  theme_id: "81557225562"
+  store: diejimcrow.myshopify.com
+  ignore_files:
+  - config/settings_data.json

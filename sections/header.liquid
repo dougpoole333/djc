@@ -16,7 +16,7 @@
 
 {% include 'search-drawer' %}
 
-<div data-section-id="{{ section.id }}" data-section-type="header-section" data-header-section>
+<div id="custom-header" data-section-id="{{ section.id }}" data-section-type="header-section" data-header-section>
   {% if section.settings.message %}
     {% if section.settings.home_page_only == false or request.page_type == 'index' %}
       <style>
@@ -58,7 +58,7 @@
     {% endif %}
   {% endif %}
 
-  <header class="site-header{% if section.settings.align_logo == 'left' %} border-bottom logo--left{% else %} logo--center{% endif %}" role="banner">
+  <header class="site-header{% if section.settings.align_logo == 'left' %} logo--left{% else %} logo--center{% endif %} custom-header" role="banner">
     <div class="grid grid--no-gutters grid--table site-header__mobile-nav">
       {% if section.settings.align_logo == 'center' %}
         {%- assign logo_classes = 'medium-up--one-third medium-up--push-one-third logo-align--center' -%}
@@ -96,8 +96,6 @@
                      style="max-width: {{ section.settings.logo_max_width }}px;">
               </noscript>
             </a>
-          {% else %}
-            <a class="site-header__logo-link" href="{{ routes.root_url }}">{{ shop.name }}</a>
           {% endif %}
         {% if request.page_type == 'index' %}
           </h1>
@@ -119,21 +117,7 @@
             {% include 'icon-search' %}
             <span class="icon__fallback-text">{{ 'layout.navigation.search' | t }}</span>
           </button>
-
-          {% if shop.customer_accounts_enabled %}
-            {% if customer %}
-              <a href="{{ routes.account_url }}" class="site-header__icon site-header__account">
-                {% include 'icon-login' %}
-                <span class="icon__fallback-text">{{ 'layout.customer.account' | t }}</span>
-              </a>
-            {% else %}
-              <a href="{{ routes.account_login_url }}" class="site-header__icon site-header__account">
-                {% include 'icon-login' %}
-                <span class="icon__fallback-text">{{ 'layout.customer.log_in' | t }}</span>
-              </a>
-            {% endif %}
-          {% endif %}
-
+           
           <a href="{{ routes.cart_url }}" class="site-header__icon site-header__cart">
             {% include 'icon-cart' %}
             <span class="icon__fallback-text">{{ 'layout.cart.title' | t }}</span>
@@ -169,10 +153,10 @@
                 </div>
               </button>
               <ul class="mobile-nav__dropdown" data-parent="{{ child_list_handle }}" data-level="2">
-                <li class="visually-hidden" tabindex="-1" data-menu-title="2">
+                <li class="visually-hidden  {% if link.title == 'Donate' %} donate {% endif %}" tabindex="-1" data-menu-title="2">
                   {{- link.title }} {{ 'layout.navigation.menu' | t -}}
                 </li>
-                <li class="mobile-nav__item border-bottom">
+                <li class="mobile-nav__item border-bottom  {% if link.title == 'Donate' %} donate {% endif %} ">
                   <div class="mobile-nav__table">
                     <div class="mobile-nav__table-cell mobile-nav__return">
                       <button class="btn--link js-toggle-submenu mobile-nav__return-btn" type="button" aria-expanded="true" aria-label="{{ link.title }}">

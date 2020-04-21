@@ -2607,9 +2607,9 @@ textarea {
 
   &:focus,
   &:not([disabled]):hover {
-    .site-nav__label {
+    {% comment %} .site-nav__label {
       border-bottom-color: $color-text;
-    }
+    } {% endcomment %}
   }
 }
 
@@ -2617,7 +2617,7 @@ textarea {
   border-bottom: 1px solid transparent;
 
   .site-nav__link--active & {
-    border-bottom-color: $color-text;
+    border-bottom-color: red;
   }
 }
 

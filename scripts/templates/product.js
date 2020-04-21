@@ -1,3 +1,2 @@
-import '../components/test-component-1'
-import '../components/test-component-3'
+import '../components/header'
 console.log("product.js")
